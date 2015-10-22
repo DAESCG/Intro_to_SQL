@@ -5,7 +5,7 @@ Created on Thu Oct 22 11:13:29 2015
 @author: Nick
 """
 
-import sqlite3 
+import sqlite3
 import pandas as pd
 
 #!---------------------------------!#
@@ -15,13 +15,13 @@ import pandas as pd
 # Load in the .csv files into a pandas datafraem
 df = pd.read_csv('alb_data.csv',index_col = 0,
                  parse_dates = 0)
-                 
+
 # Convert column names with spaces to underscores
 cols = df.columns
 cols = cols.map(lambda x: x.replace(' ', '_') if isinstance(x, (str, unicode)) else x)
 df.columns = cols
 
-# now remove leading _ 
+# now remove leading _
 cols = df.columns
 cols = cols.map(lambda x: x.lstrip('_'))
 df.columns = cols
@@ -41,13 +41,13 @@ df.to_sql('ALB',conn,index = True)
 # Load in the .csv files into a pandas datafraem
 df = pd.read_csv('jfk_data.csv',index_col = 0,
                  parse_dates = 0)
-                 
+
 # Convert column names with spaces to underscores
 cols = df.columns
 cols = cols.map(lambda x: x.replace(' ', '_') if isinstance(x, (str, unicode)) else x)
 df.columns = cols
 
-# now remove leading _ 
+# now remove leading _
 cols = df.columns
 cols = cols.map(lambda x: x.lstrip('_'))
 df.columns = cols
